@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 
+import users from "../data/users";
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -7,40 +9,17 @@ export const AuthProvider = ({ children }) => {
 
     const signinFn = (email, password) => {
         
-        if (email === "starscript@gmail.com" && password === "1234") {
-            const loggedInUser = {
-                id: 2,
-                name: "Test_Acc",
-                email: email,
-                role: "user"
-            };
-            setUser(loggedInUser);
-            return loggedInUser;
+        const foundUser = users.find(
+            user => user.email === email && user.password === password
+        );
+
+        if (!foundUser) {
+            return null;
         }
 
-        if (email === "neptune@hotmail.com" && password === "1234") {
-            const loggedInUser = {
-                id: 3,
-                name: "Jack",
-                email: email,
-                role: "user"
-            };
-            setUser(loggedInUser);
-            return loggedInUser;
-        }
-        
-        if (email === "ahzam003@gmail.com" && password === "1234") {
-            const loggedInUser = {
-                id: 1,
-                name: "Ahzam",
-                email: email,
-                role: "admin"
-            };
-            setUser(loggedInUser);
-            return loggedInUser;
-        }
+        setUser(foundUser);
 
-        return null;
+        return foundUser;
     };
 
     const signoutFn = () => {

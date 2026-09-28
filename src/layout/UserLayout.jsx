@@ -1,26 +1,26 @@
 import React from 'react'
 import { Outlet } from "react-router-dom"
 
-import Navbar from '../components/Navbar'
-import UserSidebar from '../components/UserSidebar'
+import Navbar from './Navbar'
+import UserSidebar from '../components/Sidebars/UserSidebar'
 
 const UserLayout = () => {
   return (    
-    <div className='flex flex-col min-h-screen'>
-        
+    <div className="h-screen flex flex-col overflow-hidden">                                                        {/* Overflow - hidden */}
+
         {/* Header/Navbar */}
-        <div className="Navbar bg-black h-24 w-full">
+        <div className="Navbar h-24 w-full">
           <Navbar/>
         </div>
         
         {/* Mainbox */}
-        <div className="Mainbox flex-1 w-full flex">
+        <div className="Mainbox flex-1 w-full flex min-h-0">
 
-          <div className="Sidebar bg-blue-400 w-32">
+          <div className="Sidebar w-32">
             <UserSidebar/>
           </div>
 
-          <div className="Maincontent bg-red-400 flex-1">
+          <div className="Maincontent flex-1">
             <Outlet/>
           </div>
 

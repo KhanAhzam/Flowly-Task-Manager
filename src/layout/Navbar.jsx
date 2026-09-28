@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext} from 'react';
 import { useNavigate } from "react-router-dom";
 
-import Button1_SignOut from './Buttons/Button1_SignOut'
+import Button1_SignOut from '../components/Buttons/Button1_SignOut'
 import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='flex justify-between items-center px-4 py-2 h-full'>
+        <div className='flex justify-between items-center px-4 py-2 h-full bg-[#6D54B5]'>
         
             <div className="logo text-white text-5xl">
                 LOGO

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet } from "react-router-dom"
 
-import Navbar from '../components/Navbar'
-import AdminSidebar from '../components/AdminSidebar'
+import Navbar from './Navbar'
+import AdminSidebar from '../components/Sidebars/AdminSidebar'
 
 const AdminLayout = () => {
   return (    

@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import AdminLayout from "./layout/AdminLayout"
-import UserLayout from "./layout/UserLayout"
-
-import Login from "./pages/Common/SignIn"
+import MainLayout from "./layout/MainLayout"
+import SignIn from "./pages/Common/SignIn"
 
 import UserDashboard from "./pages/User/UserDashboard"
 import AdminDashboard from "./pages/Admin/AdminDashboard"
+
 import ProtectedRoute from "./components/ProtectedRoutes"
 
 function App() {
@@ -14,40 +13,39 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-
         {/* Public */}
-        <Route path="/signin" element={<Login />}></Route>
+        <Route path="/signin" element={<SignIn />} />
 
-
-
-        {/* Admin */}
+        {/* Common Layout */}
         <Route
-          path="/admin"
           element={
-            <ProtectedRoute role="admin">
-              <AdminLayout />
+            <ProtectedRoute>
+              <MainLayout />
             </ProtectedRoute>
           }
         >
-          <Route path="dashboard" element={<AdminDashboard />} />
+
+          {/* Admin */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* User */}
+          <Route
+            path="/user/dashboard"
+            element={
+              <ProtectedRoute role="user">
+                <UserDashboard />
+              </ProtectedRoute>
+            }
+          />
+
         </Route>
-
-
-
-        {/* User */}
-        <Route
-          path="/user"
-          element={
-            <ProtectedRoute role="user">
-              <UserLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="dashboard" element={<UserDashboard />} />
-        </Route>
-
-
-
       </Routes>
     </BrowserRouter>
   )
