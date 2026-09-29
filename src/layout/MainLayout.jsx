@@ -14,14 +14,14 @@ const MainLayout = () => {
         <div className="h-screen flex flex-col overflow-hidden">                                                        {/* Overflow - hidden */}
 
             {/* Header/Navbar */}
-            <div className="Navbar h-24 w-full">
-            <Navbar/>
+            <div className="Navbar h-[10%] w-full">
+                <Navbar/>
             </div>
             
             {/* Mainbox */}
             <div className="Mainbox flex-1 w-full flex min-h-0">
 
-            <div className="w-60">
+            <div className="w-[15%]">
                 {user.role === "admin" ? <AdminSidebar /> : <UserSidebar />}
             </div>
 

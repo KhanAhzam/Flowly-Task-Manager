@@ -1,14 +1,14 @@
-const users = [
+const accounts = [
     {
         id: "U482",
-        name: "Test_Acc",
+        name: "Michael Olise",
         email: "starscript@gmail.com",
         password: "1234",
         role: "user"
     },
     {
         id: "U731",
-        name: "Jack",
+        name: "Ousmane Dembele",
         email: "neptune@hotmail.com",
         password: "1234",
         role: "user"
@@ -22,4 +22,4 @@ const users = [
     }
 ];
 
-export default users;
+export default accounts;

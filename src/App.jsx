@@ -2,11 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import MainLayout from "./layout/MainLayout"
 import SignIn from "./pages/Common/SignIn"
+import Landing from "./pages/Common/Landing"
 
 import UserDashboard from "./pages/User/UserDashboard"
+import UserTasks from "./pages/User/UserTasks"
+
 import AdminDashboard from "./pages/Admin/AdminDashboard"
 
-import ProtectedRoute from "./components/ProtectedRoutes"
+import ProtectedRoute from "./components/common/ProtectedRoutes"
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
       <Routes>
 
         {/* Public */}
+        <Route path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
 
         {/* Common Layout */}
@@ -44,6 +48,16 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/user/tasks"
+            element={
+              <ProtectedRoute role="user">
+                <UserTasks />
+              </ProtectedRoute>
+            }
+          />
+
+
 
         </Route>
       </Routes>

@@ -1,24 +1,19 @@
 import { createContext, useState } from "react";
 
-import users from "../data/users";
-
+import accounts from "../data/accounts";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     const signinFn = (email, password) => {
-        
-        const foundUser = users.find(
+        const foundUser = accounts.find(
             user => user.email === email && user.password === password
         );
-
         if (!foundUser) {
             return null;
         }
-
         setUser(foundUser);
-
         return foundUser;
     };
 
