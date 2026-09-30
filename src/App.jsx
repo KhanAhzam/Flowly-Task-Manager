@@ -6,6 +6,8 @@ import Landing from "./pages/Common/Landing"
 
 import UserDashboard from "./pages/User/UserDashboard"
 import UserTasks from "./pages/User/UserTasks"
+import UserTeam from "./pages/User/UserTeam"
+import UserAnalytics from "./pages/User/UserAnalytics"
 
 import AdminDashboard from "./pages/Admin/AdminDashboard"
 
@@ -53,6 +55,22 @@ function App() {
             element={
               <ProtectedRoute role="user">
                 <UserTasks />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/team"
+            element={
+              <ProtectedRoute role="user">
+                <UserTeam />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/analytics"
+            element={
+              <ProtectedRoute role="user">
+                <UserAnalytics />
               </ProtectedRoute>
             }
           />

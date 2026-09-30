@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { LayoutDashboard, ListTodo, UserGroup, CalendarDays, Bell, Settings } from "lucide-react";
+import { LayoutDashboard, ListTodo, UserGroup, ChartPie } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import AuthContext from '../../context/AuthContext';
 
@@ -16,24 +16,14 @@ const sidebarItems = [
     icon: ListTodo
   },
   {
-    name: "Teams",
+    name: "Team",
     path: "/user/team",
     icon: UserGroup
   },
   {
-    name: "Calendar",
-    path: "/user/calendar",
-    icon: CalendarDays
-  },
-  {
-    name: "Notification",
-    path: "/user/notification",
-    icon: Bell
-  },
-  {
-    name: "Settings",
-    path: "/user/settings",
-    icon: Settings
+    name: "Analytics",
+    path: "/user/analytics",
+    icon: ChartPie
   }
 ];
 

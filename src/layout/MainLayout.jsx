@@ -11,7 +11,7 @@ const MainLayout = () => {
     const { user } = useContext(AuthContext);
 
     return (    
-        <div className="h-screen flex flex-col overflow-hidden">                                                        {/* Overflow - hidden */}
+        <div className="h-screen flex flex-col">                                                        {/* Overflow - hidden */}
 
             {/* Header/Navbar */}
             <div className="Navbar h-[10%] w-full">
@@ -21,11 +21,11 @@ const MainLayout = () => {
             {/* Mainbox */}
             <div className="Mainbox flex-1 w-full flex min-h-0">
 
-            <div className="w-[15%]">
+            <div className="w-[15%] ">
                 {user.role === "admin" ? <AdminSidebar /> : <UserSidebar />}
             </div>
 
-            <div className="Maincontent flex-1">
+            <div className="Maincontent flex-1 overflow-y-auto">
                 <Outlet/>
             </div>
 
