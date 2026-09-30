@@ -79,17 +79,18 @@ const UserDashboard = () => {
           </div>
 
           {/* Tasks */}
-          <div className="border border-gray-200 rounded-xl overflow-hidden">
+          <div className="border border-border-secondary rounded-xl overflow-hidden">
             {pinnedTasks.length === 0 ? (
-              <div className="p-6 text-center text-gray-500 font-semibold text-2xl">
+              <div className="p-6 text-center text-text-tertiary font-semibold text-2xl">
                 No pinned tasks.
               </div>
             ) : (
               pinnedTasks.map((task) => (
                 <div
                   key={task.id}
-                  className="flex justify-between items-center px-5 py-4 border-b border-gray-200 last:border-b-0"
+                  className="flex justify-between items-center px-5 py-4 border-b border-border-secondary last:border-b-0"
                 >
+                  
                   {/* Left Side */}
                   <div className='flex gap-5 items-center'>
 
@@ -97,7 +98,7 @@ const UserDashboard = () => {
                     <div className="group cursor-pointer p-3 rounded-full">
                       <Pin
                           size={20}
-                          className="group-hover:hidden"
+                          className="group-hover:hidden text-success-primary"
                       />
                       <PinOff
                           size={20}
@@ -119,23 +120,25 @@ const UserDashboard = () => {
 
                   {/* Due Date + Priority + Status */}
                   <div className="flex items-center gap-6">
-                    <span className="text-sm text-gray-500">
+
+                    <span className="text-sm text-text-tertiary">
                       Due {formatDate(task.dueDate)}
                     </span>
 
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-text-tertiary">
                       {task.priority}
                     </span>
 
                     {task.status === 'Pending' ? (
-                      <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-2 py-1 rounded-2xl">
+                      <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-4 py-1 rounded-2xl">
                         {task.status}
                       </span>
                     ) : (
-                      <span className="text-sm font-semibold text-success-primary bg-success-secondary px-2 py-1 rounded-2xl">
+                      <span className="text-sm font-semibold text-success-primary bg-success-secondary px-4 py-1 rounded-2xl">
                         {task.status}
                       </span>
                     )}
+
                   </div>
 
                 </div>
