@@ -93,7 +93,7 @@ const tasks = [
         createdBy: "U731",
         assignedTo: "U731",
 
-        title: "Review Changes",
+        title: "Review changes",
         description: "Work on changes discussed in the meeting.",
 
         assignedDate: "2026-09-15",
