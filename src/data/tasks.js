@@ -1,4 +1,5 @@
 const tasks = [
+
     // =========================
     // OUSMANE DEMBELE - U731
     // =========================
@@ -17,7 +18,9 @@ const tasks = [
 
         priority: "High",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -34,7 +37,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -51,7 +56,9 @@ const tasks = [
 
         priority: "High",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -68,7 +75,9 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: true
     },
 
     {
@@ -85,7 +94,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -102,7 +113,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Completed",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -119,7 +132,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -136,7 +151,9 @@ const tasks = [
 
         priority: "Low",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
 
@@ -158,7 +175,9 @@ const tasks = [
 
         priority: "High",
         status: "Completed",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -175,7 +194,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -192,7 +213,9 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -209,7 +232,9 @@ const tasks = [
 
         priority: "High",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -226,7 +251,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: true
     },
 
 
@@ -248,7 +275,9 @@ const tasks = [
 
         priority: "High",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -265,7 +294,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -282,7 +313,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -299,7 +332,9 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
 
@@ -321,7 +356,9 @@ const tasks = [
 
         priority: "High",
         status: "Completed",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -338,7 +375,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: true
     },
 
     {
@@ -355,7 +394,9 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -372,7 +413,9 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
 
@@ -394,7 +437,9 @@ const tasks = [
 
         priority: "High",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -411,7 +456,9 @@ const tasks = [
 
         priority: "High",
         status: "Completed",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     },
 
     {
@@ -428,7 +475,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: true
     },
 
     {
@@ -445,7 +494,9 @@ const tasks = [
 
         priority: "Medium",
         status: "Pending",
-        pinned: true
+
+        pinned: true,
+        pinnedByAdmin: false
     },
 
     {
@@ -462,8 +513,11 @@ const tasks = [
 
         priority: "Low",
         status: "Pending",
-        pinned: false
+
+        pinned: false,
+        pinnedByAdmin: false
     }
+
 ];
 
 export default tasks;

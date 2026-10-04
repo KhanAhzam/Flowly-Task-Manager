@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-
-import { LayoutDashboard, ListTodo, UserGroup, ChartPie } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { LayoutDashboard, ListTodo, UserGroup, ChartPie } from "lucide-react";
+
 import AuthContext from '../../context/AuthContext';
 
 const sidebarItems = [
@@ -57,7 +57,7 @@ const UserSidebar = () => {
         {/* Image */}
         <div className='rounded-full w-10 h-10 bg-error-primary flex items-center justify-center'>
           {/* <img src="" alt="" /> */}
-          <div className='text-white text-xl'> D </div>
+          <div className='text-white text-xl'> {user.name.charAt(0)} </div>
         </div>
 
         {/* Name - Role */}

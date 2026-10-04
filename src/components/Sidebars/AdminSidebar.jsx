@@ -1,8 +1,8 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
 import { NavLink } from "react-router-dom";
+import { LayoutDashboard, ListTodo, UserGroup, ChartPie } from "lucide-react";
 
-import { LayoutDashboard, ListTodo, UserGroup, CalendarDays, Bell, Settings } from "lucide-react";
+import AuthContext from '../../context/AuthContext';
 
 const sidebarItems = [
   {
@@ -16,32 +16,22 @@ const sidebarItems = [
     icon: ListTodo
   },
   {
-    name: "Teams",
+    name: "Team",
     path: "/admin/team",
     icon: UserGroup
   },
   {
-    name: "Calendar",
-    path: "/admin/calendar",
-    icon: CalendarDays
-  },
-  {
-    name: "Notification",
-    path: "/admin/notification",
-    icon: Bell
-  },
-  {
-    name: "Settings",
-    path: "/admin/settings",
-    icon: Settings
+    name: "Analytics",
+    path: "/admin/analytics",
+    icon: ChartPie
   }
 ];
 
 const AdminSidebar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
-    <div 
-      className='h-full flex flex-col py-8 items-center bg-primary px-4 justify-between'
-    >
+    <div className='h-full flex flex-col py-8 items-center bg-primary px-4 justify-between'>
 
       {/* Sidebar Options */}
       <div
@@ -67,13 +57,13 @@ const AdminSidebar = () => {
         {/* Image */}
         <div className='rounded-full w-10 h-10 bg-error-primary flex items-center justify-center'>
           {/* <img src="" alt="" /> */}
-          <div className='text-white text-xl'> D </div>
+          <div className='text-white text-xl'> {user.name.charAt(0)} </div>
         </div>
 
         {/* Name - Role */}
         <div className='flex flex-col items-center'>
           <div className='text-sm text-primary font-semibold'>
-            Neptune
+            {user.name}
           </div>
           <div className='text-xs text-primary font-semibold'>
             Software Engineer

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
 import { CircleCheckBig, Loader, ScrollText, Pin, PinOff } from 'lucide-react';
+
 import TaskSummaryCard from '../../components/TaskSummaryCard';
 import AuthContext from '../../context/AuthContext';
 import tasks from '../../data/tasks';

@@ -9,15 +9,6 @@ const accounts = [
         joinDate: "2025-08-12"
     },
     {
-        id: "A222",
-        name: "Rafel Pol",
-        email: "pol@gmail.com",
-        password: "1234",
-        role: "admin",
-        jobRole: "Project Manager",
-        joinDate: "2025-11-03"
-    },
-    {
         id: "U482",
         name: "Ferran Torres",
         email: "starscript@gmail.com",

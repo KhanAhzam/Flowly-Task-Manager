@@ -3,10 +3,11 @@ import { Pin, PinOff, Search, ChevronDown, Plus, Pencil, Trash2 } from 'lucide-r
 
 import TaskPopup from '../../components/TaskPopup'
 import AuthContext from '../../context/AuthContext'
-import tasks from '../../data/tasks'
 import formatDate from '../../utils/formatDate'
+import tasks from '../../data/tasks'
+import accounts from '../../data/accounts'
 
-const UserTasks = () => {
+const AdminTasks = () => {
   const { user } = useContext(AuthContext)
 
   const [taskList, setTaskList] = useState(tasks)
@@ -58,18 +59,16 @@ const UserTasks = () => {
   }
 
   // User's Tasks
-  const userTasks = taskList.filter(
-    task => task.assignedTo === user.id
-  )
+  const userTasks = taskList;
 
   // Search
   const filteredTasks = userTasks.filter(task =>
     task.title.toLowerCase().includes(search.toLowerCase())
   )
 
+
   return (
     <div className="p-10">
-
       <div className="shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-8">
 
         {/* Header */}
@@ -215,10 +214,9 @@ const UserTasks = () => {
                 <div>
                   <span
                     className={`font-semibold px-4 py-1 rounded-2xl text-sm
-                      ${
-                        task.priority === "High"
-                          ? "text-urgency-high-primary bg-urgency-high-secondary"
-                          : task.priority === "Medium"
+                      ${task.priority === "High"
+                        ? "text-urgency-high-primary bg-urgency-high-secondary"
+                        : task.priority === "Medium"
                           ? "text-urgency-medium-primary bg-urgency-medium-secondary"
                           : "text-urgency-low-primary bg-urgency-low-secondary"
                       }
@@ -294,4 +292,4 @@ const UserTasks = () => {
   )
 }
 
-export default UserTasks
+export default AdminTasks

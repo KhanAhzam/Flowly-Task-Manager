@@ -10,6 +10,9 @@ import UserTeam from "./pages/User/UserTeam"
 import UserAnalytics from "./pages/User/UserAnalytics"
 
 import AdminDashboard from "./pages/Admin/AdminDashboard"
+import AdminTasks from "./pages/Admin/AdminTasks"
+import AdminTeam from "./pages/Admin/AdminTeam"
+import AdminAnalytics from "./pages/Admin/AdminAnalytics"
 
 import ProtectedRoute from "./components/common/ProtectedRoutes"
 
@@ -18,11 +21,11 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* Public */}
+{/* Public */}
         <Route path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
 
-        {/* Common Layout */}
+{/* Common Layout */}
         <Route
           element={
             <ProtectedRoute>
@@ -31,7 +34,7 @@ function App() {
           }
         >
 
-          {/* Admin */}
+{/* Admin */}
           <Route
             path="/admin/dashboard"
             element={
@@ -40,8 +43,32 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/admin/tasks"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminTasks />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/team"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminTeam />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/analytics"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminAnalytics />
+              </ProtectedRoute>
+            }
+          />
 
-          {/* User */}
+{/* User */}
           <Route
             path="/user/dashboard"
             element={
