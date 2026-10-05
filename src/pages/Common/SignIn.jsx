@@ -69,7 +69,7 @@ const SignIn = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder='Email or Phone Number'
-                            className='text-2xl'
+                            className='text-2xl outline-none'
                         />
                     </div>
 
@@ -82,7 +82,7 @@ const SignIn = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder='Password'
-                            className='text-2xl'
+                            className='text-2xl outline-none'
                         />
                     </div>
 

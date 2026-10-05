@@ -6,31 +6,24 @@ import AuthContext from '../../context/AuthContext'
 import MemberCard from '../../components/MemberCard'
 
 const UserTeam = () => {
-
     const { user } = useContext(AuthContext)
 
     // Add task statistics to every account
     const teamMembers = accounts.map(member => {
-
         const memberTasks = tasks.filter(
             task => task.assignedTo === member.id
         )
-
         return {
             ...member,
-
             totalTasks: memberTasks.length,
-
             completedTasks: memberTasks.filter(
                 task => task.status === "Completed"
             ).length,
-
             pendingTasks: memberTasks.filter(
                 task => task.status === "Pending"
             ).length
         }
     })
-
 
     // Separate admins and users
     const admins = teamMembers.filter(
@@ -40,7 +33,6 @@ const UserTeam = () => {
     const users = teamMembers.filter(
         member => member.role === "user"
     )
-
 
     return (
         <div className="p-10">

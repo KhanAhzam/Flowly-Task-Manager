@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import { CircleCheckBig, Loader, ScrollText, Pin, PinOff } from 'lucide-react';
 
 import AuthContext from '../../context/AuthContext';
@@ -9,7 +8,6 @@ import formatDate from '../../utils/formatDate';
 
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
-   const navigate = useNavigate();
 
   const totalTasks = tasks.length;
   const pendingTasks = tasks.filter(task => task.status === "Pending").length
@@ -144,8 +142,6 @@ const AdminDashboard = () => {
           </div>
 
         </div>
-
-
 
       </div>
 

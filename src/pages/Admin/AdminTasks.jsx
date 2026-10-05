@@ -116,7 +116,7 @@ const AdminTasks = () => {
 
             {/* Assignee Filter */}
             <button className="flex items-center gap-2 border border-border-secondary rounded-2xl pr-2 pl-4 py-2 font-semibold bg-success-primary text-text-secondary h-11 cursor-pointer">
-              Assignee
+              Assigned To
               <ChevronDown size={20} />
             </button>
 
@@ -199,7 +199,7 @@ const AdminTasks = () => {
                     </div>
                   </div>
 
-                  {/* Assignee */}
+                  {/* Assigned to */}
                   <div className="flex items-center gap-2">
                     <div className="w-9 h-9 rounded-full bg-success-primary text-secondary flex items-center justify-center text-lg font-semibold">
                       {creator.name.charAt(0)}

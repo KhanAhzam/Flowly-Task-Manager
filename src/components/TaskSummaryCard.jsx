@@ -2,7 +2,7 @@ import React from 'react'
 
 const TaskSummaryCard = ({ title, value, description, icon: Icon }) => {
   return (
-    <div className="flex flex-col justify-between border border-gray-200 shadow-lg px-8 py-6 rounded-2xl h-40">
+    <div className="flex flex-col justify-between border border-border-secondary shadow-lg px-8 py-6 rounded-2xl h-40">
 
       {/* Top */}
       <div className="flex justify-between items-center">
