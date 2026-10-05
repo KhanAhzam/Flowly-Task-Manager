@@ -37,9 +37,9 @@ const AdminTasks = () => {
       prev.map(task =>
         task.id === editingTask.id
           ? {
-              ...task,
-              ...formData
-            }
+            ...task,
+            ...formData
+          }
           : task
       )
     )
@@ -144,7 +144,7 @@ const AdminTasks = () => {
 
             <div></div>
             <div>TASK NAME</div>
-            <div>ASSIGNEE</div>
+            <div>ASSIGNED TO</div>
             <div>DUE DATE</div>
             <div>PRIORITY</div>
             <div>STATUS</div>
@@ -158,115 +158,121 @@ const AdminTasks = () => {
               No tasks found.
             </div>
           ) : (
-            filteredTasks.map((task) => (
-              <div
-                key={task.id}
-                className="grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr_100px] items-center px-4 py-4 gap-5 border-b border-border-secondary last:border-b-0"
-              >
-                {/* Pin */}
-                <div className="group cursor-pointer p-3 rounded-full">
-                  {task.pinned ? (
-                    <>
+            filteredTasks.map((task) => {
+              const creator = accounts.find(
+                account => account.id === task.assignedTo
+              )
+              return (
+                <div
+                  key={task.id}
+                  className="grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr_100px] items-center px-4 py-4 gap-5 border-b border-border-secondary last:border-b-0"
+                >
+                  {/* Pin */}
+                  <div className="group cursor-pointer p-3 rounded-full">
+                    {task.pinned ? (
+                      <>
+                        <Pin
+                          size={20}
+                          className="group-hover:hidden text-success-primary"
+                        />
+                        <PinOff
+                          size={20}
+                          className="hidden group-hover:block text-error-secondary"
+                        />
+                      </>
+                    ) : (
                       <Pin
                         size={20}
-                        className="group-hover:hidden text-success-primary"
+                        className="text-text-tertiary group-hover:text-success-primary"
                       />
-                      <PinOff
-                        size={20}
-                        className="hidden group-hover:block text-error-secondary"
-                      />
-                    </>
-                  ) : (
-                    <Pin
-                      size={20}
-                      className="text-text-tertiary group-hover:text-success-primary"
-                    />
-                  )}
+                    )}
 
-                </div>
-
-                {/* Task Name */}
-                <div className="pr-5">
-                  <div className="font-semibold text-lg">
-                    {task.title}
                   </div>
-                  <div className="text-text-tertiary">
-                    {task.description}
+
+                  {/* Task Name */}
+                  <div className="pr-5">
+                    <div className="font-semibold text-lg">
+                      {task.title}
+                    </div>
+                    <div className="text-text-tertiary">
+                      {task.description}
+                    </div>
                   </div>
-                </div>
 
-                {/* Assignee */}
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-success-primary text-secondary flex items-center justify-center text-lg font-semibold">
-                    {user.name.charAt(0)}
+                  {/* Assignee */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 rounded-full bg-success-primary text-secondary flex items-center justify-center text-lg font-semibold">
+                      {creator.name.charAt(0)}
+                    </div>
+                    <span>
+                      {creator.name}
+                    </span>
                   </div>
-                  <span>
-                    {user.name}
-                  </span>
-                </div>
 
-                {/* Due Date */}
-                <div className="text-text-primary">
-                  {formatDate(task.dueDate)}
-                </div>
+                  {/* Due Date */}
+                  <div className="text-text-primary">
+                    {formatDate(task.dueDate)}
+                  </div>
 
-                {/* Priority */}
-                <div>
-                  <span
-                    className={`font-semibold px-4 py-1 rounded-2xl text-sm
+                  {/* Priority */}
+                  <div>
+                    <span
+                      className={`font-semibold px-4 py-1 rounded-2xl text-sm
                       ${task.priority === "High"
-                        ? "text-urgency-high-primary bg-urgency-high-secondary"
-                        : task.priority === "Medium"
-                          ? "text-urgency-medium-primary bg-urgency-medium-secondary"
-                          : "text-urgency-low-primary bg-urgency-low-secondary"
-                      }
+                          ? "text-urgency-high-primary bg-urgency-high-secondary"
+                          : task.priority === "Medium"
+                            ? "text-urgency-medium-primary bg-urgency-medium-secondary"
+                            : "text-urgency-low-primary bg-urgency-low-secondary"
+                        }
                     `}
-                  >
+                    >
 
-                    {task.priority}
+                      {task.priority}
 
-                  </span>
-
-                </div>
-
-                {/* Status */}
-                <div>
-                  {task.status === "Completed" ? (
-                    <span className="text-sm font-semibold text-success-primary bg-success-secondary px-4 py-1 rounded-2xl">
-                      Completed
                     </span>
-                  ) : (
-                    <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-4 py-1 rounded-2xl">
-                      Pending
-                    </span>
-                  )}
+
+                  </div>
+
+                  {/* Status */}
+                  <div>
+                    {task.status === "Completed" ? (
+                      <span className="text-sm font-semibold text-success-primary bg-success-secondary px-4 py-1 rounded-2xl">
+                        Completed
+                      </span>
+                    ) : (
+                      <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-4 py-1 rounded-2xl">
+                        Pending
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-3">
+                    {/* Edit */}
+                    <button
+                      onClick={() => {
+                        setEditingTask(task)
+                        setIsPopupOpen(true)
+                      }}
+                      className="text-text-tertiary hover:text-success-primary cursor-pointer"
+                    >
+                      <Pencil size={20} />
+                    </button>
+
+
+                    {/* Delete */}
+                    <button
+                      onClick={() => handleDeleteTask(task.id)}
+                      className="text-text-tertiary hover:text-error-primary cursor-pointer"
+                    >
+                      <Trash2 size={20} />
+                    </button>
+
+                  </div>
+
                 </div>
-
-                {/* Actions */}
-                <div className="flex items-center gap-3">
-                  {/* Edit */}
-                  <button
-                    onClick={() => {
-                      setEditingTask(task)
-                      setIsPopupOpen(true)
-                    }}
-                    className="text-text-tertiary hover:text-success-primary cursor-pointer"
-                  >
-                    <Pencil size={20} />
-                  </button>
-
-
-                  {/* Delete */}
-                  <button
-                    onClick={() => handleDeleteTask(task.id)}
-                    className="text-text-tertiary hover:text-error-primary cursor-pointer"
-                  >
-                    <Trash2 size={20} />
-                  </button>
-
-                </div>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
 
