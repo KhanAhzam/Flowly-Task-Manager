@@ -32,7 +32,7 @@ const PriorityPendingPieChart = ({ userTasks = [] }) => {
   ];
 
   return (
-    <div className="border border-border-secondary rounded-xl p-6">
+    <div className="shadow-lg border border-border-secondary rounded-xl p-6">
 
       <h2 className="text-xl font-semibold">
         Pending Tasks by Priority

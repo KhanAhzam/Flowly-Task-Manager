@@ -69,7 +69,7 @@ const AdminTasks = () => {
 
   return (
     <div className="p-10">
-      <div className="shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-8">
+      <div className="bg-background shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-8">
 
         {/* Header */}
         <div className="flex flex-col gap-3">
@@ -137,10 +137,10 @@ const AdminTasks = () => {
         </div>
 
         {/* Task Table */}
-        <div className="border border-border-secondary rounded-xl overflow-hidden">
+        <div className="border shadow-lg border-border-secondary rounded-xl overflow-hidden">
 
           {/* Table Header */}
-          <div className="grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr_100px] items-center bg-border-secondary gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
+          <div className="text-sm grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr_100px] items-center bg-border-secondary/40 gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
 
             <div></div>
             <div>TASK NAME</div>

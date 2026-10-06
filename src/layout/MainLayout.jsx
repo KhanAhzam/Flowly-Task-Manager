@@ -1,33 +1,28 @@
-import React, { useContext } from 'react'
 import { Outlet } from "react-router-dom"
 
 import Navbar from './Navbar'
-import UserSidebar from '../components/Sidebars/UserSidebar'
-import AdminSidebar from '../components/Sidebars/AdminSidebar'
-
-import AuthContext from '../context/AuthContext'
+import Sidebar from './Sidebar'
+import maincontent_bg_image from '../assests/maincontent_bg_image.png'
 
 const MainLayout = () => {
-    const { user } = useContext(AuthContext);
+    return (
+        <div className="h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: `url(${maincontent_bg_image})` }}>
 
-    return (    
-        <div className="h-screen flex flex-col">                                                        {/* Overflow - hidden */}
+            {/* Header/Navbar
+            <div className="h-20 w-full border-b border-secondary/10">
+                <Navbar />
+            </div> */}
 
-            {/* Header/Navbar */}
-            <div className="Navbar h-[10%] w-full">
-                <Navbar/>
-            </div>
-            
             {/* Mainbox */}
             <div className="Mainbox flex-1 w-full flex min-h-0">
 
-            <div className="w-[15%] ">
-                {user.role === "admin" ? <AdminSidebar /> : <UserSidebar />}
-            </div>
+                <div className="w-[15%]">
+                    <Sidebar />
+                </div>
 
-            <div className="Maincontent flex-1 overflow-y-auto">
-                <Outlet/>
-            </div>
+                <div className="Maincontent flex-1 overflow-y-auto">
+                    <Outlet />
+                </div>
 
             </div>
 

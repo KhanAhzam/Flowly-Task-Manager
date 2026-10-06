@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
 import MainLayout from "./layout/MainLayout"
 import SignIn from "./pages/Common/SignIn"
@@ -22,7 +22,8 @@ function App() {
       <Routes>
 
 {/* Public */}
-        <Route path="/" element={<Landing />} />
+        {/* <Route path="/" element={<Landing />} /> */}
+        <Route path="/" element={<Navigate to="/signin" replace />} />
         <Route path="/signin" element={<SignIn />} />
 
 {/* Common Layout */}

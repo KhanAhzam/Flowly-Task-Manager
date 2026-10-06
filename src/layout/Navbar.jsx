@@ -1,8 +1,9 @@
 import React from 'react'
-import { useContext} from 'react';
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import Button1_SignOut from '../components/Buttons/Button1_SignOut'
+import flowlyLogo from '../assests/flowly_logo.png'
+import Button2 from '../components/Buttons/Button2';
 import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
@@ -16,16 +17,23 @@ const Navbar = () => {
 
     return (
         <div className='flex justify-between items-center pl-15 px-4 py-2 h-full bg-primary'>
-        
-            <div className="logo text-white text-5xl">
-                LOGO
+
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+                <img
+                    src={flowlyLogo}
+                    alt=""
+                    className="w-14 h-14 object-contain"
+                />
+
+                <span className="text-4xl font-semibold text-secondary">
+                    Flowly
+                </span>
             </div>
 
-            <div className="signout">
-                <Button1_SignOut onClick={handleExit}>
-                    Sign Out
-                </Button1_SignOut>
-            </div>
+            <Button2 onClick={handleExit} className='rounded-3xl px-5 py-1.5 cursor-pointer text-lg font-semibold'>
+                Sign Out
+            </Button2>
 
         </div>
     )

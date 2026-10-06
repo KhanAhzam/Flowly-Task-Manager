@@ -61,7 +61,7 @@ const AdminAnalytics = () => {
 
   return (
     <div className="p-10">
-      <div className='shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-12'>
+      <div className='bg-background shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-12'>
 
         {/* Header */}
         <div className='flex flex-col gap-3'>
