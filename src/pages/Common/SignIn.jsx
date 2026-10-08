@@ -3,7 +3,7 @@ import { Eye, EyeOff } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
 
 import flowlyLogo from '../../assests/flowly_logo.png';
-import signin_bg_image from '../../assests/signin_bg_image.png'
+import maincontent_bg_image from '../../assests/maincontent_bg_image.png'
 import Button1 from '../../components/Buttons/Button1'
 import AuthContext from '../../context/AuthContext';
 
@@ -41,7 +41,7 @@ const SignIn = () => {
     };
 
     return (
-        <div className="relative min-h-screen w-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${signin_bg_image})` }}>
+        <div className="relative min-h-screen w-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${maincontent_bg_image})` }}>
 
             {/* Top Header */}
             <div className="absolute top-0 left-0 w-full px-6 sm:px-16 py-5 flex items-center justify-between">

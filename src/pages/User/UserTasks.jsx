@@ -69,9 +69,9 @@ const UserTasks = () => {
   )
 
   return (
-    <div className="p-10">
+    <div className="min-h-full px-2 pt-10 pb-20 md:pt-5 md:px-10 md:py-10">
 
-      <div className="bg-background shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-8">
+      <div className='bg-background shadow-lg rounded-xl pt-5 px-4 md:px-10 py-10 flex flex-col gap-8'>
 
         {/* Header */}
         <div className="flex flex-col gap-3">
@@ -84,13 +84,13 @@ const UserTasks = () => {
         </div>
 
         {/* Search + Filters + New Task */}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between gap-2 items-center">
 
           {/* Left side */}
           <div className="flex items-center gap-2">
 
             {/* Search */}
-            <div className="flex items-center gap-4 border border-success-primary rounded-xl px-3 py-2 w-96 h-11">
+            <div className="flex items-center gap-4 border border-success-primary rounded-xl px-3 py-2 md:w-96 h-11">
               <Search
                 size={25}
                 className="text-success-primary"
@@ -104,24 +104,6 @@ const UserTasks = () => {
               />
             </div>
 
-            {/* Status Filter */}
-            <button className="flex items-center gap-2 border border-border-secondary rounded-2xl pr-2 pl-4 py-2 font-semibold bg-success-primary text-text-secondary h-11 cursor-pointer">
-              Status
-              <ChevronDown size={20} />
-            </button>
-
-            {/* Priority Filter */}
-            <button className="flex items-center gap-2 border border-border-secondary rounded-2xl pr-2 pl-4 py-2 font-semibold bg-success-primary text-text-secondary h-11 cursor-pointer">
-              Priority
-              <ChevronDown size={20} />
-            </button>
-
-            {/* Assignee Filter */}
-            <button className="flex items-center gap-2 border border-border-secondary rounded-2xl pr-2 pl-4 py-2 font-semibold bg-success-primary text-text-secondary h-11 cursor-pointer">
-              Assignee
-              <ChevronDown size={20} />
-            </button>
-
           </div>
 
           {/* Create New Task */}
@@ -133,7 +115,7 @@ const UserTasks = () => {
             className="bg-success-primary text-text-secondary px-4 py-2 rounded-2xl font-semibold h-11 flex items-center gap-2 cursor-pointer"
           >
             <Plus size={20} />
-            Create New Task
+            <span className='hidden md:block'>Create New Task</span>
           </button>
 
         </div>

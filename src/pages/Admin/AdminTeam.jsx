@@ -43,9 +43,9 @@ const AdminTeam = () => {
   )
 
   return (
-    <div className="p-10">
+    <div className="min-h-full px-2 pt-10 pb-20 md:pt-5 md:px-10 md:py-10">
 
-      <div className="bg-background shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-10">
+      <div className='bg-background shadow-lg rounded-xl pt-5 px-4 md:px-10 py-10 flex flex-col gap-10'>
 
         {/* Header */}
         <div className="flex flex-col gap-3">
@@ -60,15 +60,17 @@ const AdminTeam = () => {
         {/* Admins */}
         <div className="flex flex-col gap-5">
           
+          {/* Header */}
           <h2 className="text-3xl font-semibold">
             Admins
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
             {admins.map(member => (
               <MemberCard
                 key={member.id}
                 member={member}
+                showTaskStats={false}
               />
             ))}
           </div>
@@ -79,7 +81,7 @@ const AdminTeam = () => {
         <div className="flex flex-col gap-5">
           
           {/* Header + Search */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-10">
 
             <h2 className="text-3xl font-semibold">
               Users
@@ -87,25 +89,22 @@ const AdminTeam = () => {
 
             {/* Search */}
             <div className="flex items-center gap-4 border border-success-primary rounded-xl px-3 py-2 w-96 h-11">
-              <Search
-                size={25}
-                className="text-success-primary"
-              />
+       
+              <Search size={25} className="text-success-primary"/>
 
-              <input
+              <input className="outline-none w-full"
                 type="text"
                 placeholder="Search users..."
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
-                className="outline-none w-full"
-              />
+                />
 
             </div>
 
           </div>
 
           {/* User Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
 
             {filteredUsers.length === 0 ? (
               <div className="col-span-full p-10 text-center text-gray-500 font-semibold">
@@ -116,6 +115,7 @@ const AdminTeam = () => {
                 <MemberCard
                   key={member.id}
                   member={member}
+                  showTaskStats={true}
                 />
               ))
             )}

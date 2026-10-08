@@ -60,8 +60,9 @@ const AdminAnalytics = () => {
   const topCompletion = [...userTaskStats].sort((a, b) => b.completionRate - a.completionRate).slice(0, 3)
 
   return (
-    <div className="p-10">
-      <div className='bg-background shadow-lg rounded-xl pt-5 p-10 flex flex-col gap-12'>
+    <div className="min-h-full px-2 pt-10 pb-20 md:pt-5 md:px-10 md:py-10">
+
+      <div className='bg-background shadow-lg rounded-xl pt-5 px-4 md:px-10 py-10 flex flex-col gap-12 '>
 
         {/* Header */}
         <div className='flex flex-col gap-3'>
@@ -72,7 +73,7 @@ const AdminAnalytics = () => {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-10">
           {summaryCards.map((card) => (
             <TaskSummaryCard
               key={card.title}
@@ -114,6 +115,7 @@ const AdminAnalytics = () => {
         
 
       </div>
+
     </div>
   )
 }

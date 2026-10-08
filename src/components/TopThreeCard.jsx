@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TopThreeCard = ({ title, members, valueKey, valueSuffix = "", subtitle }) => {
+const TopThreeCard = ({ title, members, valueKey}) => {
   return (
     <div className="border border-border-secondary rounded-xl shadow-lg p-6 py-8">
 
@@ -22,11 +22,11 @@ const TopThreeCard = ({ title, members, valueKey, valueSuffix = "", subtitle }) 
 
               {/* Name */}
               <div>
-                <div className="font-semibold text-lg">
+                <div className="font-semibold text-sm ss:text-lg">
                   {member.name}
                 </div>
-                <div className="text-sm text-text-tertiary">
-                  {subtitle? subtitle(member): member.jobRole}
+                <div className="text-xs ss:text-sm text-text-tertiary">
+                  {member.jobRole}
                 </div>
               </div>
 
@@ -35,7 +35,6 @@ const TopThreeCard = ({ title, members, valueKey, valueSuffix = "", subtitle }) 
             {/* Value */}
             <div className="font-semibold text-xl">
               {member[valueKey]}
-              {valueSuffix}
             </div>
 
           </div>

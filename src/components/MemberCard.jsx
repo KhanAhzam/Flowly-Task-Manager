@@ -1,10 +1,17 @@
 import React from 'react'
 
 import formatDate from '../utils/formatDate'
+import team_card_image from "../assests/team_card_image.png"
 
-const MemberCard = ({ member }) => {
+const MemberCard = ({ member, showTaskStats = true }) => {
     return (
-        <div className="border shadow border-border-secondary rounded-xl p-6">
+        <div className="border shadow border-border-secondary rounded-xl p-6"
+            style={{
+                backgroundImage: `url(${team_card_image})`,
+                backgroundSize: "100% 100%",
+                backgroundPosition: "center"
+            }}
+        >
 
             {/* Member Info */}
             <div className="flex items-center gap-6">
@@ -35,41 +42,43 @@ const MemberCard = ({ member }) => {
             </div>
 
             {/* Task Statistics */}
-            <div className="grid grid-cols-3 border border-gray-200 rounded-lg mt-6 overflow-hidden">
+            {showTaskStats && (
+                <div className="grid grid-cols-3 border border-gray-200 rounded-lg mt-6 overflow-hidden">
 
-                <div className="p-3 text-center border-r border-gray-200">
-                    <div className="font-semibold">
-                        {member.totalTasks}
+                    <div className="p-3 text-center border-r border-gray-200">
+                        <div className="font-semibold">
+                            {member.totalTasks}
+                        </div>
+
+                        <div className="text-xs text-text-tertiary">
+                            Tasks
+                        </div>
                     </div>
 
-                    <div className="text-xs text-text-tertiary">
-                        Tasks
+
+                    <div className="p-3 text-center border-r border-gray-200">
+                        <div className="font-semibold">
+                            {member.completedTasks}
+                        </div>
+
+                        <div className="text-xs text-text-tertiary">
+                            Completed
+                        </div>
                     </div>
+
+
+                    <div className="p-3 text-center">
+                        <div className="font-semibold">
+                            {member.pendingTasks}
+                        </div>
+
+                        <div className="text-xs text-text-tertiary">
+                            Pending
+                        </div>
+                    </div>
+
                 </div>
-
-
-                <div className="p-3 text-center border-r border-gray-200">
-                    <div className="font-semibold">
-                        {member.completedTasks}
-                    </div>
-
-                    <div className="text-xs text-text-tertiary">
-                        Completed
-                    </div>
-                </div>
-
-
-                <div className="p-3 text-center">
-                    <div className="font-semibold">
-                        {member.pendingTasks}
-                    </div>
-
-                    <div className="text-xs text-text-tertiary">
-                        Pending
-                    </div>
-                </div>
-
-            </div>
+            )}
 
         </div>
     )
