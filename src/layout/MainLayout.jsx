@@ -16,7 +16,7 @@ const MainLayout = () => {
             {/* Mainbox */}
             <div className="Mainbox flex-1 w-full flex min-h-0">
 
-                <div className="w-[15%]">
+                <div className="w-[10%] xl:w-[15%]">
                     <Sidebar />
                 </div>
 

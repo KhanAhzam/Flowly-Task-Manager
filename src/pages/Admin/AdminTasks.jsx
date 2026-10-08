@@ -137,7 +137,9 @@ const AdminTasks = () => {
         </div>
 
         {/* Task Table */}
-        <div className="border shadow-lg border-border-secondary rounded-xl overflow-hidden">
+        <div className="border shadow-lg border-border-secondary rounded-xl overflow-x-auto">
+
+          <div className="min-w-[1300px]">
 
           {/* Table Header */}
           <div className="text-sm grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr_100px] items-center bg-border-secondary/40 gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
@@ -190,11 +192,11 @@ const AdminTasks = () => {
                   </div>
 
                   {/* Task Name */}
-                  <div className="pr-5">
+                  <div className="pr-5 min-w-0">
                     <div className="font-semibold text-lg">
                       {task.title}
                     </div>
-                    <div className="text-text-tertiary">
+                    <div className="text-text-tertiary truncate">
                       {task.description}
                     </div>
                   </div>
@@ -274,6 +276,9 @@ const AdminTasks = () => {
               )
             })
           )}
+
+          </div>
+          
         </div>
 
       </div>

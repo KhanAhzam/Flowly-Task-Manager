@@ -84,7 +84,11 @@ const UserDashboard = () => {
           </div>
 
           {/* Task Table */}
-          <div className="shadow-lg border border-border-secondary rounded-xl overflow-hidden">
+          <div className="shadow-lg border border-border-secondary rounded-xl overflow-x-auto">
+
+            <div className="min-w-[1200px]">
+
+            
 
             {/* Table Header */}
             <div className="text-sm grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr] items-center bg-border-secondary/40 gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
@@ -130,12 +134,12 @@ const UserDashboard = () => {
                     </div>
 
                     {/* Task Name */}
-                    <div className="pr-5">
+                    <div className="pr-5 min-w-0">
                       <div className="font-semibold text-lg">
                         {task.title}
                       </div>
 
-                      <div className="text-text-tertiary">
+                      <div className="text-text-tertiary truncate">
                         {task.description}
                       </div>
                     </div>
@@ -191,6 +195,8 @@ const UserDashboard = () => {
                 )
               })
             )}
+
+            </div>
 
           </div>
 

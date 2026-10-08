@@ -81,110 +81,113 @@ const AdminDashboard = () => {
           </div>
 
           {/* Task Table */}
-          <div className="shadow-lg border border-border-secondary rounded-xl overflow-hidden">
+          <div className="shadow-lg border border-border-secondary rounded-xl overflow-x-auto">
 
-            {/* Table Header */}
-            <div className="text-sm grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr] items-center bg-border-secondary/40 gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
+            <div className="min-w-[1200px]">
 
-              <div></div>
-              <div>TASK NAME</div>
-              <div>ASSIGNED TO</div>
-              <div>DUE DATE</div>
-              <div>PRIORITY</div>
-              <div>STATUS</div>
+              {/* Table Header */}
+              <div className="text-sm grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr] items-center bg-border-secondary/40 gap-5 border-b border-border-secondary px-4 py-3 font-semibold text-text-primary">
+
+                <div></div>
+                <div>TASK NAME</div>
+                <div>ASSIGNED TO</div>
+                <div>DUE DATE</div>
+                <div>PRIORITY</div>
+                <div>STATUS</div>
+
+              </div>
+
+              {/* Tasks */}
+              {pinnedAdminTasks.length === 0 ? (
+                <div className="p-10 text-center text-text-tertiary font-semibold">
+                  No pinned tasks.
+                </div>
+              ) : (
+                pinnedAdminTasks.map((task) => {
+
+                  const creator = accounts.find(
+                    account => account.id === task.assignedTo
+                  )
+
+                  return (
+                    <div key={task.id} className="grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr] items-center px-4 py-4 gap-5 border-b border-border-secondary last:border-b-0">
+
+                      {/* Pin */}
+                      <div className="group cursor-pointer p-3 rounded-full">
+                        <Pin
+                          size={20}
+                          className="group-hover:hidden text-success-primary"
+                        />
+
+                        <PinOff
+                          size={20}
+                          className="hidden group-hover:block text-error-secondary"
+                        />
+                      </div>
+
+                      {/* Task Name */}
+                      <div className="pr-5 min-w-0">
+                        <div className="font-semibold text-lg">
+                          {task.title}
+                        </div>
+
+                        <div className="text-text-tertiary truncate">
+                          {task.description}
+                        </div>
+                      </div>
+
+                      {/* Assigned To */}
+                      <div className="flex items-center gap-2">
+
+                        <div className="w-9 h-9 rounded-full bg-success-primary text-secondary flex items-center justify-center text-lg font-semibold">
+                          {creator?.name?.charAt(0)}
+                        </div>
+
+                        <span>
+                          {creator?.name}
+                        </span>
+
+                      </div>
+
+                      {/* Due Date */}
+                      <div className="text-text-primary">
+                        {formatDate(task.dueDate)}
+                      </div>
+
+                      {/* Priority */}
+                      <div>
+                        <span className={`font-semibold px-4 py-1 rounded-2xl text-sm
+                    ${task.priority === "High"
+                              ? "text-urgency-high-primary bg-urgency-high-secondary"
+                              : task.priority === "Medium"
+                                ? "text-urgency-medium-primary bg-urgency-medium-secondary"
+                                : "text-urgency-low-primary bg-urgency-low-secondary"
+                            }
+                  `}
+                        >
+                          {task.priority}
+                        </span>
+                      </div>
+
+                      {/* Status */}
+                      <div>
+                        {task.status === "Completed" ? (
+                          <span className="text-sm font-semibold text-success-primary bg-success-secondary px-4 py-1 rounded-2xl">
+                            Completed
+                          </span>
+                        ) : (
+                          <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-4 py-1 rounded-2xl">
+                            Pending
+                          </span>
+                        )}
+                      </div>
+
+                    </div>
+                  )
+                })
+              )}
 
             </div>
-
-            {/* Tasks */}
-            {pinnedAdminTasks.length === 0 ? (
-              <div className="p-10 text-center text-text-tertiary font-semibold">
-                No pinned tasks.
-              </div>
-            ) : (
-              pinnedAdminTasks.map((task) => {
-
-                const creator = accounts.find(
-                  account => account.id === task.assignedTo
-                )
-
-                return (
-                  <div key={task.id} className="grid grid-cols-[50px_2fr_1.2fr_1fr_1fr_1fr] items-center px-4 py-4 gap-5 border-b border-border-secondary last:border-b-0">
-
-                    {/* Pin */}
-                    <div className="group cursor-pointer p-3 rounded-full">
-                      <Pin
-                        size={20}
-                        className="group-hover:hidden text-success-primary"
-                      />
-
-                      <PinOff
-                        size={20}
-                        className="hidden group-hover:block text-error-secondary"
-                      />
-                    </div>
-
-                    {/* Task Name */}
-                    <div className="pr-5">
-                      <div className="font-semibold text-lg">
-                        {task.title}
-                      </div>
-
-                      <div className="text-text-tertiary">
-                        {task.description}
-                      </div>
-                    </div>
-
-                    {/* Assigned To */}
-                    <div className="flex items-center gap-2">
-
-                      <div className="w-9 h-9 rounded-full bg-success-primary text-secondary flex items-center justify-center text-lg font-semibold">
-                        {creator?.name?.charAt(0)}
-                      </div>
-
-                      <span>
-                        {creator?.name}
-                      </span>
-
-                    </div>
-
-                    {/* Due Date */}
-                    <div className="text-text-primary">
-                      {formatDate(task.dueDate)}
-                    </div>
-
-                    {/* Priority */}
-                    <div>
-                      <span
-                        className={`font-semibold px-4 py-1 rounded-2xl text-sm
-                  ${task.priority === "High"
-                            ? "text-urgency-high-primary bg-urgency-high-secondary"
-                            : task.priority === "Medium"
-                              ? "text-urgency-medium-primary bg-urgency-medium-secondary"
-                              : "text-urgency-low-primary bg-urgency-low-secondary"
-                          }
-                `}
-                      >
-                        {task.priority}
-                      </span>
-                    </div>
-
-                    {/* Status */}
-                    <div>
-                      {task.status === "Completed" ? (
-                        <span className="text-sm font-semibold text-success-primary bg-success-secondary px-4 py-1 rounded-2xl">
-                          Completed
-                        </span>
-                      ) : (
-                        <span className="text-sm font-semibold text-warning-primary bg-warning-secondary px-4 py-1 rounded-2xl">
-                          Pending
-                        </span>
-                      )}
-                    </div>
-
-                  </div>
-                )
-              })
-            )}
 
           </div>
 

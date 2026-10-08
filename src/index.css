@@ -1,37 +1,58 @@
 @import "tailwindcss";
-    
+
 @theme {
-  --color-primary: #1E1B4B;                                         /* Dark Blue */
-  --color-secondary: #ffffff;                                       /* White */
-  --color-Main3: #312E6B;                                           /* Medium Blue */
 
-  --color-success-primary: #0D9488;                                 /* Green */
-  --color-success-secondary: #0d94882b;                             /* Light Green */
+    /* Custom breakpoints */
+    --breakpoint-min: 380px;
+    --breakpoint-ss: 420px;
+    --breakpoint-xs: 480px;
+    --breakpoint-3xl: 1650px;
 
-  --color-warning-primary: #f59e0b;                                 /* Yellow */
-  --color-warning-secondary: #f59e0b40;                             /* Light Yellow */
+    /* Colours */
+    --color-primary: #1E1B4B;
+    /* Dark Blue */
+    --color-secondary: #ffffff;
+    /* White */
+    --color-Main3: #312E6B;
+    /* Medium Blue */
 
-  --color-error-primary: #ef4444;                                   
-  --color-error-secondary: #ef44449c;
+    --color-success-primary: #0D9488;
+    /* Green */
+    --color-success-secondary: #0d94882b;
+    /* Light Green */
 
-  /* Urgency Schema */
-  --color-urgency-high-primary: #F97316;
-  --color-urgency-high-secondary: #F9731626;
+    --color-warning-primary: #f59e0b;
+    /* Yellow */
+    --color-warning-secondary: #f59e0b40;
+    /* Light Yellow */
 
-  --color-urgency-medium-primary: #3B82F6;
-  --color-urgency-medium-secondary: #3B82F626;
+    --color-error-primary: #ef4444;
+    --color-error-secondary: #ef44449c;
 
-  --color-urgency-low-primary: #64748B;
-  --color-urgency-low-secondary: #9e9e9e54;
+    /* Urgency Schema */
+    --color-urgency-high-primary: #F97316;
+    --color-urgency-high-secondary: #F9731626;
 
-  --color-background: #FFFFFF;                                      /* White */
+    --color-urgency-medium-primary: #3B82F6;
+    --color-urgency-medium-secondary: #3B82F626;
 
-  /* --color-surface: #ffffff; */
+    --color-urgency-low-primary: #64748B;
+    --color-urgency-low-secondary: #9e9e9e54;
 
-  --color-text-primary: #000000;                                    /* Black */
-  --color-text-secondary: #FFFFFF;                                  /* White */
-  --color-text-tertiary: #64748B;                                   /* Gray */
+    --color-background: #FFFFFF;
+    /* White */
 
-  --color-border-primary: #64748B;                                  /* Gray */
-  --color-border-secondary: #9e9e9e54;                              /* Light Gray */
+    /* --color-surface: #ffffff; */
+
+    --color-text-primary: #000000;
+    /* Black */
+    --color-text-secondary: #FFFFFF;
+    /* White */
+    --color-text-tertiary: #64748B;
+    /* Gray */
+
+    --color-border-primary: #64748B;
+    /* Gray */
+    --color-border-secondary: #9e9e9e54;
+    /* Light Gray */
 }

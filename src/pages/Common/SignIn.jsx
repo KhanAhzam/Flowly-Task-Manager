@@ -44,7 +44,7 @@ const SignIn = () => {
         <div className="relative min-h-screen w-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${signin_bg_image})` }}>
 
             {/* Top Header */}
-            <div className="absolute top-0 left-0 w-full px-16 py-5 flex items-center justify-between">
+            <div className="absolute top-0 left-0 w-full px-6 sm:px-16 py-5 flex items-center justify-between">
 
                 {/* Logo */}
                 <div className="flex items-center gap-2">
@@ -60,21 +60,23 @@ const SignIn = () => {
                 </div>
 
                 {/* Support */}
-                <div className="flex items-start pb-5 gap-2 text-sm text-text-tertiary">
+                <div className="flex flex-col sm:flex-row sm:gap-2 text-xs xs:text-sm text-text-tertiary">
                     <span>Need a hand?</span>
-                    <a href="mailto:flowlysupportdev@gmail.com" className="font-semibold text-primary hover:underline decoration-primary">
-                        Contact support
-                    </a>
-                    <span className="text-primary">↗</span>
+                    <div className='flex gap-1'>
+                        <a href="mailto:flowlysupportdev@gmail.com" className="font-semibold text-primary hover:underline decoration-primary">
+                            Contact support
+                        </a>
+                        <span className="text-primary">↗</span>
+                    </div>
                 </div>
 
             </div>
 
             {/* Main Login Box */}
-            <div className="w-full max-w-[540px] bg-background rounded-xl shadow-lg p-10">
+            <div className="w-full max-w-[340px] xs:max-w-[440px] md:max-w-[500px] bg-background rounded-xl shadow-lg px-8 py-6 xs:p-10">
 
                 {/* Logo */}
-                <div className="flex items-center gap-2 mb-8">
+                <div className="hidden xs:block flex items-center gap-2 mb-8">
                     <img
                         src={flowlyLogo}
                         alt=""
@@ -87,7 +89,7 @@ const SignIn = () => {
                 </div>
 
                 {/* Heading */}
-                <h1 className="text-3xl font-semibold text-text-primary mb-10">
+                <h1 className="text-3xl font-semibold text-text-primary mb-6 xs:mb-10">
                     Sign in
                 </h1>
 
@@ -173,7 +175,7 @@ const SignIn = () => {
             </div>
 
             {/* Footer */}
-            <div className="absolute bottom-6 w-full px-16 flex justify-between items-center text-sm text-text-tertiary">
+            <div className="absolute bottom-6 w-full px-6 sm:px-16 flex justify-between items-center text-[10px] ss:text-xs xs:text-sm text-text-tertiary">
 
                 {/* Bottom Left */}
                 <div>
