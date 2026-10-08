@@ -66,11 +66,7 @@ const Sidebar = () => {
                             }
                         >
 
-                            <item.icon
-                                size={25}
-                                strokeWidth={2}
-                            />
-
+                            <item.icon size={25} strokeWidth={2}/>
                             <span className="hidden xl:block text-sm 2xl:text-lg font-semibold">
                                 {item.name}
                             </span>
